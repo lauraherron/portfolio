@@ -1,15 +1,26 @@
 :root{
   --color-accent: #355E3B;
-  color-scheme: dark;
-  --bg: Canvas;
-  --txt: CanvasText;
+  --bg-light: #ffffff;
+  --txt-light: #000000;
+  --bg-dark: #000000;
+  --txt-dark: #ffffff;
   
 }
 html {
   accent-color: #355E3B;
-  color-scheme: dark;
-  /*background: var(--bg);
-  color: var(--txt); */
+  /*background-color: var(--bg-light);
+  color: var(--txt-light);*/
+  color-scheme: light;
+  
+}
+html[data-theme='auto'] {
+  accent-color: #355E3B;
+  color-scheme: light dark;
+}
+html[data-theme='dark'] {
+  background-color: var(--bg-dark);
+  /*color: var(--txt-dark);*/
+  color-scheme:dark;
 }
 body {
     max-width : 75ch;
@@ -60,6 +71,14 @@ img {
     border-bottom-style: solid;
     border-bottom-color: oklch(80% 3% 200);
     padding-bottom: 6px
+
+}
+.color-scheme {
+  position: absolute;
+  top: 1rem;
+  right:2rem;
+  font-family: inherit;
+  font-size: 80%;
 
 }
 

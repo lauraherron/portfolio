@@ -51,4 +51,46 @@ for (let p of pages) {
   nav.append(a);
 }
 
+document.body.insertAdjacentHTML(
+  'afterbegin',
+  `
+	<label class="color-scheme">
+		Theme:
+		<select id="color-scheme">
+			<option value="auto">Automatic</option>
+      <option value="light">Light</option>
+      <option value="dark">Dark</option>
+		</select>
+	</label>`,
+);
 
+//new
+const select = document.querySelector('#color-scheme');
+select.addEventListener('change', function (event) {
+  console.log('color scheme changed to', event.target.value);
+  if (event.target.value === 'auto') {
+    document.documentElement.style.removeProperty('color-scheme');
+  } else {
+    //document.documentElement.style.setProperty('color-scheme', event.target.value);
+    document.documentElement.style.setProperty('color-scheme', event.target.value);
+
+  }
+  if(localStorage.colorscheme){
+    document.documentElement.style.setProperty('color-scheme', localStorage.colorscheme);
+    select.value = localStorage.colorscheme;
+  }
+  localStorage.colorScheme = event.target.value;
+});
+
+document.addEventListener('DOMContentLoaded', (event) => {
+  if ('colorScheme' in localStorage) {
+    const savedScheme = localStorage.colorScheme;
+    select.value = savedScheme;
+    if (savedScheme === 'auto') {
+      document.documentElement.style.removeProperty('color-scheme');
+    } else {
+      document.documentElement.style.setProperty('color-scheme', savedScheme);
+    }
+  }
+});
+//new
