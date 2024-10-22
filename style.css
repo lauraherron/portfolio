@@ -1,8 +1,15 @@
 :root{
   --color-accent: #355E3B;
+ /* color-scheme: dark;*/
+  --bg: Canvas;
+  --txt: CanvasText;
+  
 }
-html{
+html {
   accent-color: #355E3B;
+  color-scheme: light;
+  /*background: var(--bg);
+  color: var(--txt); */
 }
 body {
     max-width : 75ch;
@@ -22,6 +29,7 @@ img {
     height: auto;
 }
 .topnav {
+    --border-color: oklch(50% 10% 200 / 40%);
     display: flex;
     width: 60%;
     position:fixed;
@@ -30,7 +38,8 @@ img {
     margin-bottom: 30px;
     border-bottom-width: 1px;
     border-bottom-style: solid;
-    border-bottom-color: oklch(80% 3% 200);
+    border-bottom-color: var(--border-color);
+
 }
 .topnav a {
     flex: 1;
@@ -43,6 +52,7 @@ img {
     border-bottom: 0.4em solid var(--color-accent);
     background-color: #d8edda;
 }
+
 .current {
     font-weight: bold;
     color: var(--color-accent);
@@ -52,6 +62,7 @@ img {
     padding-bottom: 6px
 
 }
+
 input, textarea, button {
   font: inherit;
   /*display: block;
