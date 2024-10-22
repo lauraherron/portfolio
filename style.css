@@ -1,6 +1,6 @@
 :root{
   --color-accent: #355E3B;
- /* color-scheme: dark;*/
+  color-scheme: dark;
   --bg: Canvas;
   --txt: CanvasText;
   
